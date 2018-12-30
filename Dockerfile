@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine as final
+FROM openjdk:8-jdk-alpine
 RUN adduser -D barath
 USER barath
 ADD target/demo-*.jar app.jar
