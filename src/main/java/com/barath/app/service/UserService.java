@@ -1,13 +1,14 @@
-package com.example.demo.service;
+package com.barath.app.service;
 
-import com.example.demo.model.User;
-import com.example.demo.repository.UserRepository;
+import com.barath.app.model.User;
+import com.barath.app.repository.UserRepository;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
 /**
- * Created by barath on 08/06/18.
+ * @author barath
  */
 @Service
 public class UserService {
@@ -19,18 +20,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getUserFromRepository(String userName){
-        this.hello();
+    public User getUserByUserName(String userName){      
         return this.userRepository.findByUserName(userName);
     }
 
-    public String hello(){
-        return "hello home";
-    }
 
     @PostConstruct
     public void init(){
-
         this.userRepository.save(new User("1","barath"));
     }
 

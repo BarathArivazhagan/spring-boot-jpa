@@ -1,19 +1,22 @@
-package com.example.demo.model;
+package com.barath.app.model;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
- * Created by barath on 08/06/18.
+ * @author barath
  */
 @Entity
 @Table(name="USER")
 public class User implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 6181090318795469814L;
+
+	@Id
     @Column(name="USER_ID")
     private String userId;
 

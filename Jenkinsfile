@@ -4,11 +4,7 @@ pipeline {
   tools {
         maven 'M3'
    }
-
-
-
-
-    stages {
+  stages {
         stage ('Checkout') {
             steps {
                 checkout scm
@@ -18,7 +14,7 @@ pipeline {
             steps {
               sh "echo ${env.JOB_NAME}"
               sh "echo ${env.NAME}"
-                sh "mvn  clean install -DskipTests=true"
+              sh "mvn  clean install -DskipTests=true"
             }
         }
          stage ('Test') {
