@@ -3,8 +3,8 @@ server:
   port: 9600
 spring:
   application:
-    name: spring-data-example
+    name: spring-boot-jpa-demo
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
