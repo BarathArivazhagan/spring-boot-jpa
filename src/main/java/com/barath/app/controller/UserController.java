@@ -1,12 +1,14 @@
 package com.barath.app.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.barath.app.model.User;
+import com.barath.app.entity.User;
 import com.barath.app.service.UserService;
 
 /**
@@ -15,7 +17,7 @@ import com.barath.app.service.UserService;
 @RestController
 public class UserController {
 
-    @Autowired
+    
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -23,13 +25,23 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value="/",method = RequestMethod.GET)
+	@GetMapping("/")
     public String home(){
         return "home";
     }
 
-    @RequestMapping(value="/user",method = RequestMethod.GET)
+	@GetMapping("/user")
     public User findUserByName(@RequestParam("name") String userName){
         return  this.userService.getUserByUserName(userName);
+    }
+	
+	@PostMapping("/user")
+    public User createUser(@RequestBody User user){
+        return  this.userService.createUser(user);
+    }
+	
+	@GetMapping("/users")
+    public List<User> findUsers(){
+        return  this.userService.getUsers();
     }
 }

@@ -1,11 +1,14 @@
 package com.barath.app.service;
 
-import com.barath.app.model.User;
-import com.barath.app.repository.UserRepository;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import com.barath.app.entity.User;
+import com.barath.app.repository.UserRepository;
 
 /**
  * @author barath
@@ -19,15 +22,28 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    
+    public User createUser(User user) {
+    	return this.userRepository.save(user);
+    }
 
     public User getUserByUserName(String userName){      
         return this.userRepository.findByUserName(userName);
+    }
+    
+    public List<User> getUsers(){
+    	return this.userRepository.findAll();
     }
 
 
     @PostConstruct
     public void init(){
-        this.userRepository.save(new User("1","barath"));
+    	
+    	Arrays.asList(new User(1L,"barath"))
+    		.stream()
+    		.forEach(this::createUser);
+    	
+        
     }
 
 }

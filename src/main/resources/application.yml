@@ -1,10 +1,15 @@
 
 server:
-  port: 9600
+  port: 8080
+
 spring:
   application:
     name: spring-boot-jpa-demo
+#  profiles:
+#    active:
+#    - mysql#  jpa:
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+     

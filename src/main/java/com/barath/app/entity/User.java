@@ -1,4 +1,4 @@
-package com.barath.app.model;
+package com.barath.app.entity;
 
 import java.io.Serializable;
 
@@ -17,19 +17,19 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 6181090318795469814L;
 
 	@Id
-    @Column(name="USER_ID")
-    private String userId;
+    @Column(name="USER_ID",length=50)
+    private Long userId;
 
-    @Column(name="USER_NAME")
+    @Column(name="USER_NAME",length=50)
     private String userName;
 
 
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -41,7 +41,7 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public User(String userId, String userName) {
+    public User(Long userId, String userName) {
         this.userId = userId;
         this.userName = userName;
     }
