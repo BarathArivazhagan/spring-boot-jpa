@@ -25,19 +25,19 @@ pipeline {
         stage ('Build Docker Image') {
             steps {
                 sh "docker version"
-                sh ""docker build -t barathece91/demo-${env.JOB_NAME} ."
+                sh "docker build -t barathece91/demo-${env.JOB_NAME} ."
             }
         }
         stage ('Push Docker Artifact') {
             steps {
                 sh "docker version"
-                sh ""docker build -t barathece91/demo-${env.JOB_NAME} ."
+                sh "docker build -t barathece91/demo-${env.JOB_NAME} ."
             }
         }
         stage ('Deploy Docker Image') {
             steps {
                 sh "docker version"
-                sh ""docker build -t barathece91/demo-${env.JOB_NAME} ."
+                sh "docker build -t barathece91/demo-${env.JOB_NAME} ."
             }
         }
     }
