@@ -2,7 +2,7 @@
 trigger:
 - master
 
-pool: 'Linux'
+pool: 'Azure Pipelines'
 
 variables:
   imageName: 'barathece91/demo-azure-docker'
