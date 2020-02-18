@@ -41,5 +41,4 @@ stages:
       inputs:
        command: buildAndPush
        repository: $(imageName)
-       tags:
-       - latest
+
