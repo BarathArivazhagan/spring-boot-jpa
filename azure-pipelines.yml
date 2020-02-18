@@ -10,26 +10,26 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: Build Source Code
+  - job: 'Build Source Code'
     timeoutInMinutes: 3
     steps:
     - script: ./mvwn clean package -U
       
-- stage: Unit Test
+- stage: 'Unit Test'
   jobs:
-  - job: Unit Test Code
+  - job: 'Unit Test Code'
     timeoutInMinutes: 3
     steps:
     - script: ./mvwn test
-- stage: Code Quality
+#- stage: 'Code Quality'
+#  jobs:
+#  - job:  'Code Quality'
+#    timeoutInMinutes: 3
+#    steps:
+#    - bash: ./mvwn sonar:sonar
+- stage: 'Docker Build & Docker Push'
   jobs:
-  - job:  Code Quality
-    timeoutInMinutes: 3
-    steps:
-    - bash: ./mvwn sonar:sonar
-- stage: Docker Build & Docker Push
-  jobs:
-  - job: Docker build & Push
+  - job: 'Docker build & Push'
     timeoutInMinutes: 3
     steps:
     - task: Docker@2
