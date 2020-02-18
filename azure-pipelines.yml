@@ -21,12 +21,6 @@ stages:
     timeoutInMinutes: 3
     steps:
     - script: ./mvwn test
-- stage: Unit Test
-  jobs:
-  - job: Unit Test Code
-    timeoutInMinutes: 3
-    steps:
-    - script: ./mvwn test
 - stage: Code Quality
   jobs:
   - job:  Code Quality
