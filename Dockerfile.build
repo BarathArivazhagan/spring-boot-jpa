@@ -1,0 +1,14 @@
+# Builder stage
+FROM maven:3.6-jdk-8-slim as builder
+WORKDIR /opt
+COPY . /opt
+RUN mvn clean package -DskipTests
+
+
+# Final stage
+
+FROM openjdk:8-jdk-alpine as final
+RUN  adduser -D barath
+USER barath
+COPY --from=builder  /opt/target/spring-boot-jpa-demo-*.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
